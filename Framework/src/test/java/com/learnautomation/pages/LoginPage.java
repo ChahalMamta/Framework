@@ -34,4 +34,6 @@ public class LoginPage {
 		password.sendKeys(AppUsername);
 		loginButton.click();
 	}
+	
+	//New comment added by Mamta
 }
