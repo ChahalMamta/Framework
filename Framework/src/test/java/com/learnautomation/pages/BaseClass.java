@@ -10,6 +10,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -41,9 +42,16 @@ public class BaseClass {
 			extent.attachReporter(reporter);
 	}
 	
+	@Parameters({"Browser","appUrl"})
 	@BeforeClass
-	 public void setUp() {
-		 driver = BrowserFactory.startApplication(driver, config.getBrowser(), config.getStagingUrl());
+	 public void setUp(String Browser, String appUrl) {
+		
+		//1.To start app by fetching env variables from config file
+		// driver = BrowserFactory.startApplication(driver, config.getBrowser(), config.getStagingUrl());
+		
+		
+		//2.To pass parameters from maven
+		driver = BrowserFactory.startApplication(driver, Browser, appUrl);
 	 }
 	
 	@AfterClass

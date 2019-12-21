@@ -1,3 +1,0 @@
-This is to check pull request from repo.
-
-This is to check and perform various push and pulls.
